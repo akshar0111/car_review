@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submitted</title>
+    <style>
+    #heading{
+        background: grey;
+        color:white;
+        margin-top: -0.5rem;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        font-size: 30px;
+        padding: 10px;
+      
+    }
+    #button{
+        font-family: Montserrat;
+        color: white;
+        background: black;
+        font-size: 20px;
+        width: 100px;
+        height: 35px;
+        margin-left: .5rem;
+        border-radius: 8px;    
+        }
+    
+    #in_value{
+        font-family: Montserrat;
+        font-size: 16px;
+        border: 1px solid #ebebeb;
+        background:#fff;
+        border-radius: 8px;
+        height: 30px;
+        width: 90px;
+        margin-left: 1rem;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -0.5rem;
+        margin-top: 1rem;
+        padding: 0.5rem;
+    }
+    .item {
+    margin: 0.5rem;
+    border: 1px solid black;
+    background: white;
+    padding: 2.3rem;
+    border: 1px solid black;
+    box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.4);
+    background:whitesmoke;
+    font-size: 2rem;
+    font-family: Montserrat;
+    }
+    </style>
+</head>
+
+<div id="heading">
+    <form action="del_item" method="GET">
+        Enter the id to delete Rating: <input type ='number' name='num1' min='0' id="in_value" required>      
+        <input type='submit' id='button'>
+    </form>
+</div>
+<body>
+    <div class="container">
+    {%for com in coms %}
+
+        <div class="item">
+            <b>NAME:</b>    {{com.name}}<br>
+            <b>CAR:</b>     {{com.carname}}<br>
+            <b>MAIL:</b>    {{com.email}}<br>
+            <b>MESSAGE:</b> {{com.message}}<br>
+            <b>TIME:</b>    {{com.created_at}}<br>
+            <b>Id: </b>    {{com.id}}
+            <b>Rating: </b> {{com.Rating}}
+            
+            
+        </div>
+        
+     {% endfor %}
+    </div> 
+    {% endblock %}
+</body>
+</html>

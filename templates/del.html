@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submitted</title>
+    <style>
+        #box{
+            border: 1px solid black;
+            background:whitesmoke;
+            margin-top: 5rem;
+            margin-right: auto;
+            margin-left: auto;
+            width: 25rem;
+            height: 12rem;
+            box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.4);
+            font-size: 3rem;
+            padding: 2rem;
+        }
+        button{
+            background: black;
+            color:white;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 20px;
+            width: 7rem;
+            height: 3rem;
+            box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.4);
+    </style>
+</head>
+
+
+<div id='box'>
+    {% if item_deleted == True %}
+            The complain deleted succesfully
+    {% else %}
+            Failed to delete complain
+    {% endif %}
+
+
+    <form method="POST" action='../'>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">return back</button>
+    </form>
+</div>
+{% endblock %}
